@@ -32,29 +32,51 @@ get_all_users_from_production_mentors_table(
 
 def insert_all_users_to_staging_mentors_table(base, table):
     staging_mentors_table = Airtable(base, table)
-    records = [{
-        'id': 'rec2NUzgTvbv5RPYr',
-        'fields': {
-              'Slack Name': 'VetAlly',
-            'Full Name': 'Rosendo Gonzalez',
-            'Skillsets': ['Resume Reviews', 'General Career Advice'],
-            'Max Mentees': 23,
-            'Mentor Request': ['recufZzm1LjdiKy3Z'],
-            'Email': 'rosendo.gonzalez@gmail.com'},
-        'createdTime': '2018-11-24T20:38:25.000Z'
-    },
-        {
-        'id': 'rec425V9c8DsQKckC',
-        'fields': {
-            'Slack Name': 'vincent',
-            'Full Name': 'Vincent Abruzzo',
-            'Skillsets': ['React', 'SQL', 'Functional Programming', 'Resume Reviews', 'Career Advice', 'Code Review', 'Web Development (Front-end)', 'Web Development (Back-end)', 'DevOps', 'Linux'],
-            'Active': True,
-            'Mentor Request': ['recYqfOo2kMC2PDgn', 'recHRSRsEjVtcJ6nC', 'recyWlXUxQLBk9jAW', 'recO6oOcaoWC44ESY'],
-            'Email': 'vgabruzzo@gmail.com'
-        },
-        'createdTime': '2018-03-24T19:14:07.000Z'
-    }]
+    records = {
+        "records": [
+            {
+                "fields": {
+                    "Slack Name": "testmentor1",
+                    "Full Name": "Testing Testerson",
+                    "Skillsets": [
+                        "Web (Backend Development)",
+                        "Java"
+                    ],
+                    "What time zone are you in?": "Central",
+                    "Services": [
+                        "recwcy31c6wNWAUHi"
+                    ],
+                    "Mentor Request": [
+                        "reca4PhD9FUqVR73b",
+                        "rec1kugAm2CjV8CYv",
+                        "rec9BSqxOdGyfZMPj"
+                    ],
+                    "Email": "testmentor1@gmail.com",
+                    "Code of Conduct Accepted?": true,
+                    "Guidebook Read?": true
+                }
+            },
+            {
+                "fields": {
+                    "Slack Name": "testmentor2",
+                    "Full Name": "test2",
+                    "Skillsets": [
+                        "Javascript",
+                        "Java"
+                    ],
+                    "Mentor Request": [
+                        "recoBKojRrxR1rS2t",
+                        "reczC78k3vV7p9G0R",
+                        "recDAcuRI6f8AICP0",
+                        "recsTskf3WmVzzPOP",
+                        "rec40FyPUkbPIva7A",
+                        "recnjpUNmv5UQ10ma"
+                    ],
+                    "Email": "abanthes@gmail.com"
+                }
+            }
+        ]
+    }
     staging_mentors_table.batch_insert(records)
     print('worked')
 
