@@ -13,6 +13,7 @@ production_base_id = os.environ.get('AIRTABLE_PRODUCTION_BASE_ID')
 production_mentors_table = Airtable(production_base_id, mentors_table)
 production_mentees_table = Airtable(production_base_id, mentees_table)
 
+
 # MUST CREATE MENTOR REQUEST LINK (but has link to mentors copy table)
 # MUST CREATE SERVICES LINK (mentors mentor request mentors copy)
 def link_production_mentees_to_mentors(base, table):
@@ -66,6 +67,14 @@ def get_all_users_from_production_mentors_table(base, table):
 
 
 def insert_all_users_to_staging_mentors_table(base, table):
+    '''
+    Removes record ids, linked columns (Assigned Mentees, Mentor Request, 
+    and Services), and column 'Squads' from production records in 'Mentors' table.
+
+    Deletes all records from 'Mentors' table in staging.
+
+    Inserts production records into 'Mentors' table in staging.
+    '''
 
     all_users = staging_mentors_table.get_all()
     production_records = get_all_users_from_production_mentors_table(
